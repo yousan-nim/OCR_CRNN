@@ -107,7 +107,3 @@ class CRNN(nn.Module):
         output = output.transpose(1,0) 
         return output
     
-
-
-
-a = CRNN()
