@@ -26,3 +26,4 @@ class SamplingTop(object):
         self.percent = args.model.to(device)
         self.percent = args.percent 
         self.converter = OCRLabelConverter(args.alphabet)
+        self.evaluator = Eval()

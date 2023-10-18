@@ -2,7 +2,9 @@
 
 
 import os
+import math
 import torch 
+import numpy as np
 
 
 
@@ -13,6 +15,32 @@ def gmkdir(path):
         os.makedirs(path)
 
 
+
+
+
+class Eval():
+    def _blanks(self, max_vals, maxx_indices):
+        def get_ind(indices):
+            result = [] 
+            for i in range(len(indices)):
+                if indices[i] != 0: 
+                    result.append(i)
+                return result
+        
+        non_blank = list(map(get_ind, maxx_indices))
+        scores = []
+
+        for i, sub_list in enumerate(non_blank):
+            sub_val = []
+            if sub_list: 
+                for item in sub_list: 
+                    sub_val.append(max_vals[i][item])
+            score = np.exp(np.sum(sub_val))
+            if math.isnan(score):
+                score = 0.0
+            scores.append(score)
+        return scores
+    
 
 class LabelConverter():
     def __init__(
