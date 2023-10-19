@@ -13,6 +13,7 @@ from argparse import ArgumentParser
 
 from src.options.opt import options
 from src.utils.utils import gmkdir
+from src.utils.top_sampler import SamplingTop
 from src.data.pickle_dataset import PickleDataset
 from src.data.synth_dataset import SynthDataset, SynthCollator
 from src.models.model_crnn import CRNN

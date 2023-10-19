@@ -19,7 +19,7 @@ def gmkdir(path):
 
 
 class Eval():
-    def _blanks(self, max_vals, maxx_indices):
+    def _blanks(self, max_vals, max_indices):
         def get_ind(indices):
             result = [] 
             for i in range(len(indices)):
@@ -27,9 +27,8 @@ class Eval():
                     result.append(i)
                 return result
         
-        non_blank = list(map(get_ind, maxx_indices))
+        non_blank = list(map(get_ind, max_indices))
         scores = []
-
         for i, sub_list in enumerate(non_blank):
             sub_val = []
             if sub_list: 
